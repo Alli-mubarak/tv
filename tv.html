@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle switch & tv.</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: rgb(197, 213, 228);
+        }
+        .container{
+            width: 200px;
+            height: 100px;
+            border-radius: 50px;
+            margin: 50px auto;
+            position: relative;
+            display: none;
+        }
+        label{
+            width: 50%;
+            cursor: pointer;
+            height: 100%;
+            background: rgb(205, 125, 125);
+            position: absolute;
+            border-radius: 50%;
+            left: 0;
+            z-index: 2;
+        }
+        #check:checked~label{
+            left:50%;
+            background: green;
+        }
+        #check{
+            display: none;
+        }
+        .back{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: lightpink;
+            border-radius: 50px;
+        }
+        #check:checked~.back{
+            background: rgb(97, 223, 97);
+        }
+        .tv{
+            width: 500px;
+            height: 300px;
+            border: solid 6px ;
+            margin:50px auto 0;
+            border-radius: 5px;
+            border-bottom: 15px solid;
+            background: rgb(70, 63, 63);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            font-family: monospace;
+        }
+        .message{
+            color: rgb(70, 63, 63);
+            z-index: -1;
+            animation: 3s;
+        }
+        .neck{
+            margin: auto;
+            width: 0;
+            height: 10px;
+            border: 5px solid;
+            position: relative;
+        }
+        .switch{
+            position: absolute;
+            cursor: pointer;
+            width: 5px;
+            height: 5px;
+            border: 1px solid white;
+            border-radius: 50%;
+            left: -3px;
+            top: -150%;
+        }
+        .base{
+            margin: auto;
+            height: 0;
+            width: 100px;
+            border: solid 2px;
+            border-radius: 5px;
+        }
+        .tv-display{
+            background: white;
+        }
+        .tv-message{
+            z-index: 1;
+            animation: 2s;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <input type="checkbox" name="" id="check">
+            <label for="check"></label>
+            <div class="back"></div>
+        </div>
+    </section>
+    <section>
+        <div class="tv">
+            <h1 class="message">Welcome</h1>
+        </div>
+        <div class="neck">
+            <div class="switch" onclick="sw()"></div>
+        </div>
+        <div class="base"></div>
+    </section>
+
+<script>
+function sw(){
+let x = document.querySelector(".tv");
+ x.classList.toggle("tv-display");
+let y = document.querySelector(".message");
+y.classList.toggle("tv-message");
+}
+</script>
+</body>
+</html>
